@@ -1,0 +1,61 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+      routes:
+        - id: specgeneration
+          uri: lb://specgeneration
+          predicates:
+            - Path=/specgeneration/**
+          filters:
+            - StripPrefix=1
+        - id: timesheet-resource
+          uri: lb://timesheet-resource
+          predicates:
+            - Path=/timesheet/**
+          filters:
+            - StripPrefix=1
+        - id: org-access
+          uri: lb://org-access
+          predicates:
+            - Path=/org-access/**
+          filters:
+            - StripPrefix=1
+        - id: employee1
+          uri: lb://employee1
+          predicates:
+            - Path=/employee1/**
+          filters:
+            - StripPrefix=1
+        - id: leavemanagement
+          uri: lb://leavemanagement
+          predicates:
+            - Path=/leavemanagement/**
+          filters:
+            - StripPrefix=1
+        - id: booking-system
+          uri: lb://booking-system
+          predicates:
+            - Path=/booking-system/**
+          filters:
+            - StripPrefix=1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
