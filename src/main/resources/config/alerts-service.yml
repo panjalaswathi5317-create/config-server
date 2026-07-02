@@ -1,0 +1,27 @@
+server:
+  port: 8087
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: alerts-service-group
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your-email@gmail.com
+    password: your-app-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+app:
+  jwt:
+    secret: "change-this-secret-to-a-long-random-string"
+  kafka:
+    booking-alert-topic: booking-alerts-topic
+  mail:
+    from: your-email@gmail.com

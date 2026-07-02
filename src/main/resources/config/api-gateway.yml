@@ -54,6 +54,18 @@ spring:
             - Path=/booking-system/**
           filters:
             - StripPrefix=1
+        - id: alerts-service
+          uri: lb://alerts-service
+          predicates:
+            - Path=/alerts-service/**
+          filters:
+            - StripPrefix=1
+        - id: theatre-management-service
+          uri: lb://theatre-management-service
+          predicates:
+            - Path=/theatre-management-service/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
