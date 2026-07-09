@@ -2,7 +2,7 @@ FROM amazoncorretto:21
 
 WORKDIR /app
 
-COPY target/myapp.jar app.jar
+COPY target/metaarch-config-server-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8888
 
