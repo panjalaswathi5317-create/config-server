@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts-jdk21
+FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
